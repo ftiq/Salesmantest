@@ -1,3 +1,4 @@
+# salesman_backend/models/salesman_profile.py
 from odoo import models, fields
 
 class SalesmanProfile(models.Model):
@@ -6,7 +7,6 @@ class SalesmanProfile(models.Model):
 
     name = fields.Char(string='اسم المندوب', required=True)
     mobile = fields.Char(string='موبايل')
-
     customer_ids = fields.Many2many(
         'res.partner',
         string='العملاء',
@@ -14,5 +14,4 @@ class SalesmanProfile(models.Model):
         column1='salesman_id',
         column2='partner_id'
     )
-
     payment_ids = fields.One2many('account.payment', 'salesman_id', string='قسائم الدفع')
