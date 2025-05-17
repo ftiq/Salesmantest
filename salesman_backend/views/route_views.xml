@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_route_tree" model="ir.ui.view">
+        <field name="name">predefined.route.tree</field>
+        <field name="model">salesman.route</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="salesman_id"/>
+                <field name="customer_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_route_form" model="ir.ui.view">
+        <field name="name">predefined.route.form</field>
+        <field name="model">salesman.route</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="salesman_id"/>
+                        <field name="description"/>
+                    </group>
+                    <field name="customer_ids" mode="kanban">
+                        <tree>
+                            <field name="name"/>
+                            <field name="city"/>
+                            <field name="street"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_predefined_routes" model="ir.actions.act_window">
+        <field name="name">المسارات المحددة</field>
+        <field name="res_model">salesman.route</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
