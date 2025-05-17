@@ -6,7 +6,6 @@ class SalesmanProfile(models.Model):
 
     name = fields.Char(string='اسم المندوب', required=True)
     mobile = fields.Char(string='موبايل')
-    warehouse_id = fields.Many2one('stock.warehouse', string='المستودع', required=False)
 
     customer_ids = fields.Many2many(
         'res.partner',
