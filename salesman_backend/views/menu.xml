@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_salesman_root" name="إدارة المناديب" sequence="10"/>
-    
-    <menuitem id="menu_salesman" name="المناديب" parent="menu_salesman_root" 
+
+    <menuitem id="menu_salesman" name="المناديب" parent="menu_salesman_root"
               action="action_salesman" sequence="10"/>
               
-    <menuitem id="menu_weekly_route" name="الخطط الأسبوعية" parent="menu_salesman_root" 
+    <menuitem id="menu_weekly_route" name="الخطط الأسبوعية" parent="menu_salesman_root"
               action="action_weekly_route" sequence="20"/>
               
-    <menuitem id="menu_predefined_routes" name="المسارات المحددة" parent="menu_salesman_root" 
+    <menuitem id="menu_predefined_routes" name="المسارات المحددة" parent="menu_salesman_root"
               action="action_predefined_routes" sequence="30"/>
               
-    <menuitem id="menu_visits" name="سجل الزيارات" parent="menu_salesman_root" 
+    <menuitem id="menu_visits" name="سجل الزيارات" parent="menu_salesman_root"
               action="action_visit_logs" sequence="40"/>
 </odoo>
