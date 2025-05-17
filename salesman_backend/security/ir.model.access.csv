@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_salesman_profile,salesman.profile,model_salesman_profile,base.group_user,1,1,1,0
 access_salesman_route,salesman.route,model_salesman_route,base.group_user,1,1,1,0
-access_daily_route,salesman.daily.route,model_salesman_daily_route,base.group_user,1,1,1,0
+access_weekly_route,salesman.weekly.route,model_salesman_weekly_route,base.group_user,1,1,1,0
 access_visit_log,salesman.visit.log,model_salesman_visit_log,base.group_user,1,1,1,0
