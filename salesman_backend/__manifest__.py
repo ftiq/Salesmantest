@@ -16,11 +16,11 @@
     'data': [
         'security/ir_rule.xml',
         'security/ir.model.access.csv',
-        'views/menu.xml',
         'views/salesman_views.xml',
         'views/weekly_route_views.xml',
         'views/route_views.xml',
         'views/visit_views.xml',
+        'views/menu.xml',      # القائمة أخيراً!
     ],
     'demo': [],
     'installable': True,
