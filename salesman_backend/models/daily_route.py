@@ -8,10 +8,9 @@ class WeeklyRoute(models.Model):
     date_from = fields.Date(string='من تاريخ', required=True)
     date_to = fields.Date(string='إلى تاريخ', required=True)
     salesman_id = fields.Many2one('salesman.profile', string='المندوب', required=True)
-    
     day_lines = fields.One2many(
-        'salesman.weekly.route.day', 
-        'weekly_route_id', 
+        'salesman.weekly.route.day',
+        'weekly_route_id',
         string='أيام الأسبوع'
     )
 
