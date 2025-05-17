@@ -14,7 +14,7 @@
     'data': [
         # 🛡️ ملفات الصلاحيات أولاً
         'security/ir.model.access.csv',
-        'views/salesman_profile_view.xml',
+
     
 
     ],
