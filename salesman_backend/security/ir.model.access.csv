@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_salesman_profile,salesman.profile,model_salesman_profile,base.group_system,1,1,1,1
+access_salesman_route,salesman.route,model_salesman_route,base.group_system,1,1,1,1
+access_salesman_daily_route,salesman.daily.route,model_salesman_daily_route,base.group_system,1,1,1,1
+access_salesman_daily_route_line,salesman.daily.route.line,model_salesman_daily_route_line,base.group_system,1,1,1,1
+access_salesman_visit_log,salesman.visit.log,model_salesman_visit_log,base.group_system,1,1,1,1
