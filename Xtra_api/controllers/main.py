@@ -1,25 +1,32 @@
 import json
+import logging
 from odoo import http
 from odoo.http import request
+
+_logger = logging.getLogger(__name__)
 
 class XtraAPIController(http.Controller):
 
     def _authenticate_token(self):
         token = request.httprequest.headers.get('Authorization')
+        _logger.warning(f"Received token: {token}")
+
         if not token or not token.startswith('Bearer '):
             return None
+
         token = token[7:]  # Remove 'Bearer '
         user = request.env['res.users'].sudo().search([('api_token', '=', token)], limit=1)
         if not user:
             return None
-        request.uid = user.id  # impersonate the user
+
+        request.uid = user.id  # Impersonate user
         return user
 
     def _auth_required(self):
         user = self._authenticate_token()
         if not user:
             return self._json_response({'error': 'Unauthorized'}, status=401)
-        return None  # OK
+        return None  # Authorized
 
     def _json_response(self, data, status=200):
         return request.make_response(
@@ -28,7 +35,7 @@ class XtraAPIController(http.Controller):
             status=status
         )
 
-    @http.route('/api/contacts', type='http', auth='public', methods=['GET'], csrf=False)
+    @http.route('/api/contacts', type='http', auth='public', methods=['GET', 'POST'], csrf=False)
     def get_contacts(self):
         auth = self._auth_required()
         if auth:
@@ -48,7 +55,7 @@ class XtraAPIController(http.Controller):
         ]
         return self._json_response(result)
 
-    @http.route('/api/salesmen', type='http', auth='public', methods=['GET'], csrf=False)
+    @http.route('/api/salesmen', type='http', auth='public', methods=['GET', 'POST'], csrf=False)
     def get_salesmen(self):
         auth = self._auth_required()
         if auth:
@@ -67,7 +74,7 @@ class XtraAPIController(http.Controller):
         ]
         return self._json_response(result)
 
-    @http.route('/api/visits', type='http', auth='public', methods=['GET'], csrf=False)
+    @http.route('/api/visits', type='http', auth='public', methods=['GET', 'POST'], csrf=False)
     def get_visits(self):
         auth = self._auth_required()
         if auth:
@@ -87,7 +94,7 @@ class XtraAPIController(http.Controller):
         ]
         return self._json_response(result)
 
-    @http.route('/api/products', type='http', auth='public', methods=['GET'], csrf=False)
+    @http.route('/api/products', type='http', auth='public', methods=['GET', 'POST'], csrf=False)
     def get_products(self):
         auth = self._auth_required()
         if auth:
