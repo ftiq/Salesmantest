@@ -1,12 +1,11 @@
 {
     'name': 'Xtra API',
     'version': '1.0',
-    'category': 'Hidden',
-    'summary': 'Custom API to export contacts, salesmen, and visit logs',
     'author': 'Your Name',
-    'depends': ['base', 'contacts', 'sale'],
+    'category': 'Technical',
+    'summary': 'Secure API to export contacts, salesmen, visits, and products with token authentication',
+    'depends': ['base', 'contacts', 'sale', 'stock'],
     'data': [],
     'installable': True,
-    'auto_install': False,
-    'application': True,
+    'application': False,
 }
