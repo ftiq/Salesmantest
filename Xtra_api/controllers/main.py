@@ -46,3 +46,17 @@ class XtraAPIController(http.Controller):
             }
             for v in visits
         ]
+    @http.route('/api/products', type='json', auth='user', methods=['GET'], csrf=False)
+    def get_products(self):
+        products = request.env['product.product'].sudo().search([])
+        return [
+            {
+                'id': p.id,
+                'name': p.display_name,
+                'default_code': p.default_code,
+                'qty_available': p.qty_available,
+                'free_qty': p.qty_available - p.outgoing_qty,
+                'uom': p.uom_id.name,
+            }
+            for p in products
+        ]
